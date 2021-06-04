@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://shaders/dithers/psxdither-col.png" type="Texture" id=2]
+[ext_resource path="res://shaders/psx_dither_post.shader" type="Shader" id=3]
+[ext_resource path="res://fonts/Redkost Comic.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://shaders/dithers/Render.tscn" type="PackedScene" id=5]
+[ext_resource path="res://titleScreen/FearfulHarmonytry2.ogg" type="AudioStream" id=6]
+[ext_resource path="res://World.tscn" type="PackedScene" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("ViewportContainer/Viewport")
+
+[sub_resource type="ShaderMaterial" id=3]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/col_depth = 16.0
+shader_param/dith_range = 1.0
+shader_param/scene_col = SubResource( 2 )
+shader_param/dither_tex = ExtResource( 2 )
+
+[node name="root" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+stretch_shrink = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 320, 240 )
+transparent_bg = true
+handle_input_locally = false
+render_target_clear_mode = 1
+render_target_update_mode = 3
+audio_listener_enable_3d = true
+shadow_atlas_size = 2048
+
+[node name="UI" type="Control" parent="ViewportContainer/Viewport"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ViewportContainer/Viewport/UI"]
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -31.0
+margin_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_rotation = 3.5
+rect_clip_content = false
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Fheohs[/center]
+[center]¯¯¯¯¯¯[/center]"
+text = "Fheohs
+¯¯¯¯¯¯"
+fit_content_height = true
+
+[node name="World" parent="ViewportContainer/Viewport/UI" instance=ExtResource( 7 )]
+
+[node name="ClearColor" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.537255, 0.337255, 0.172549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Render" parent="." instance=ExtResource( 5 )]
+material = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

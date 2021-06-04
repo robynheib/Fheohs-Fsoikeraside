@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://SM_Rock2.glb" type="PackedScene" id=1]
+[ext_resource path="res://psxmaterial.tres" type="Material" id=2]
+
+[node name="SM_Rock2" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0329, 0.523847, -0.494312 )
+
+[node name="SM_Rock1" parent="." index="0"]
+material/0 = ExtResource( 2 )

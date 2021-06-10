@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://hell world.tscn" type="PackedScene" id=1]
 [ext_resource path="res://shaders/dithers/psxdither-col.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://fonts/Redkost Comic.otf" type="DynamicFontData" id=4]
 [ext_resource path="res://shaders/dithers/Render.tscn" type="PackedScene" id=5]
 [ext_resource path="res://titleScreen/FearfulHarmonytry2.ogg" type="AudioStream" id=6]
+[ext_resource path="res://demo2.gd" type="Script" id=7]
+[ext_resource path="res://titleScreen/Options/Pause menu.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -28,6 +30,7 @@ shader_param/dither_tex = ExtResource( 2 )
 [node name="root" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -94,3 +97,7 @@ material = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
+
+[node name="Pause menu" parent="." instance=ExtResource( 8 )]
+pause_mode = 2
+visible = false

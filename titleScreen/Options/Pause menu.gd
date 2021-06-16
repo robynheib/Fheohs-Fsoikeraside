@@ -6,10 +6,10 @@ const optionsScene = preload("res://titleScreen/Options/Options.tscn")
 #const titleScene = preload("res://titleScreen/titleScreen.tscn")
 
 onready var selectorOne = $CenterContainer/VBoxContainer/HBoxContainer/Selector
-onready var selectorThree = $CenterContainer/VBoxContainer/HBoxContainer2/Selector
+onready var selectorThree = $CenterContainer/VBoxContainer/CenterContainer/HBoxContainer2/Selector
 
 onready var selectorOneB = $CenterContainer/VBoxContainer/HBoxContainer/Selector2
-onready var selectorThreeB = $CenterContainer/VBoxContainer/HBoxContainer2/Selector2
+onready var selectorThreeB = $CenterContainer/VBoxContainer/CenterContainer/HBoxContainer2/Selector2
 
 onready var pauseMenu = $"."
 

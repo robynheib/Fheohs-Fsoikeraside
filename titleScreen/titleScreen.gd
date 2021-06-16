@@ -56,11 +56,11 @@ func setCurrentSelection(_currentSelection):
 	selectorThreeB.text = ""
 	
 	if _currentSelection == 0:
-		selectorOne.text = ">"
-		selectorOneB.text = "<"
+		selectorOne.text = "\\"
+		selectorOneB.text = "\\"
 	if _currentSelection == 1:
-		selectorTwo.text = ">"
-		selectorTwoB.text = "<"
+		selectorTwo.text = "\\"
+		selectorTwoB.text = "\\"
 	if _currentSelection == 2:
-		selectorThree.text = ">"
-		selectorThreeB.text = "<"
+		selectorThree.text = "\\"
+		selectorThreeB.text = "\\"

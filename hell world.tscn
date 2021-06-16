@@ -13,7 +13,7 @@
 radius = 0.40357
 height = 0.002
 
-[sub_resource type="CubeMesh" id=3]
+[sub_resource type="SphereMesh" id=3]
 
 [sub_resource type="Shader" id=4]
 code = "    shader_type spatial;
@@ -88,7 +88,7 @@ shader_param/distance_fade_max = 5.0
 [node name="hell world" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0731295, -0.628039, 0.0191665 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0731295, -0.628039, 0.0191665 )
 
 [node name="CamArea" parent="." instance=ExtResource( 3 )]
 
@@ -109,7 +109,7 @@ transform = Transform( 1, 0, 0, 0, 0.946829, -0.321737, 0, 0.321737, 0.946829, 0
 shape = SubResource( 2 )
 
 [node name="MeshInstance" type="MeshInstance" parent="CamArea/Camera"]
-transform = Transform( -3.9427, 0, 0, 0, 4.90969, 1.07514, 0, 1.66833, -3.164, -0.574546, -0.24766, -4.22573 )
+transform = Transform( -6.07024, 0, 0, 0, 5.60714, 2.16422, 0, 1.90532, -6.36901, 0.00300896, -0.0418007, -0.0284777 )
 mesh = SubResource( 3 )
 material/0 = SubResource( 5 )
 

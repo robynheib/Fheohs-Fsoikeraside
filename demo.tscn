@@ -15,7 +15,7 @@ use_filter = true
 font_data = ExtResource( 4 )
 
 [sub_resource type="ViewportTexture" id=2]
-viewport_path = NodePath("ViewportContainer/Viewport")
+viewport_path = NodePath("Viewport")
 
 [sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
@@ -32,18 +32,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ViewportContainer" type="ViewportContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-stretch = true
-stretch_shrink = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+[node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 320, 240 )
 transparent_bg = true
 handle_input_locally = false
@@ -52,13 +41,14 @@ render_target_update_mode = 3
 audio_listener_enable_3d = true
 shadow_atlas_size = 2048
 
-[node name="UI" type="Control" parent="ViewportContainer/Viewport"]
+[node name="UI" type="Control" parent="Viewport"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ViewportContainer/Viewport/UI"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Viewport/UI"]
+visible = false
 anchor_top = 0.15
 anchor_right = 1.0
 anchor_bottom = 0.5
@@ -78,7 +68,18 @@ text = "Fheohs
 ¯¯¯¯¯¯"
 fit_content_height = true
 
-[node name="World" parent="ViewportContainer/Viewport/UI" instance=ExtResource( 7 )]
+[node name="World" parent="Viewport/UI" instance=ExtResource( 7 )]
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+stretch_shrink = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ClearColor" type="ColorRect" parent="."]
 anchor_right = 1.0
